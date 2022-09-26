@@ -1,2 +1,2 @@
 # fileManipulation
-A C++ program demonstrating the uses of Object Oriented programming and file i/o.
+A C++ program demonstrating for file manipulation using Object Oriented programming.

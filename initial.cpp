@@ -34,8 +34,9 @@ int main() {
   
   for(row = 0; row < numrows; ++row)
     for (col = 0; col < numcols; ++col)
-      rev_array[col][numrows-row-1] = array[row][col];
-      //rev_array[row][numcols-col-1] = array[row][col];
+      //rev_array[col][numrows-row-1] = array[row][col]; // 90 rotation
+      //rev_array[numrows-row-1][numcols-col-1] = array[row][col]; // 180 rotation
+      rev_array[numcols-col-1][row] = array[row][col]; // 270 rotation
   
   ofstream myfile ("example.pgm");
   if (myfile.is_open())

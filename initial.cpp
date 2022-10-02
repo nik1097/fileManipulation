@@ -39,8 +39,7 @@ int main() {
       rev_array[numcols-col-1][row] = array[row][col]; // 270 rotation
   
   ofstream myfile ("example.pgm");
-  if (myfile.is_open())
-  {
+  if (myfile.is_open()){
     myfile << "P2\n";
     myfile << "# Rotated image\n";
     myfile << "704 704\n";

@@ -11,11 +11,11 @@ class Ppm{
     int maxVal;
     int width; 
     int height;
-    std::vector<ColorPixel> cp;
 
    public:
+    vector<vector<ColorPixel*>>cp_array;
     Ppm();
-    Ppm(int magicNum, int maxVal, int width, int height, std::vector<ColorPixel> cp);
+    Ppm(int magicNum, int maxVal, int width, int height);
 
     int getMagicNum(){ 
         return magicNum; 
@@ -29,8 +29,8 @@ class Ppm{
     int getHeight(){ 
         return height; 
     }
-    std::vector<ColorPixel> getPixels(){ 
-        return cp; 
+    vector<vector<ColorPixel*>> getPixels(){ 
+        return cp_array; 
     }
 
     void setMagicNum(int magicNum){ 
@@ -45,8 +45,8 @@ class Ppm{
     void setHeight(int height){ 
         this->height = height; 
     }
-    void setPixels(std::vector<ColorPixel> cp){
-         this->cp = cp; 
+    void setPixels(vector<vector<ColorPixel*>>cp_array){
+         this->cp_array = cp_array; 
     }
 };
 

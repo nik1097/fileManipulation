@@ -25,7 +25,7 @@ int main(int argc, char* argv[]){
     if (input_file.find("pgm") != std::string::npos){
         Pgm* pgm = new Pgm();
         
-        ifstream infile("cats_chips.pgm");
+        ifstream infile(input_file);
         stringstream ss;
         string inputLine = "";
 
@@ -33,7 +33,11 @@ int main(int argc, char* argv[]){
         int count = 0;
         // First line : version
         getline(infile, inputLine);
-        if(inputLine.compare("P2") == 0){
+        if(inputLine.compare("P5") == 0){
+            //conversion code
+            //get new file
+
+            getline((new)infile, inputLine)
             pgm->setMagicNum(2);
             
             getline(infile, inputLine);
@@ -57,6 +61,103 @@ int main(int argc, char* argv[]){
                 pgm->gp_array.push_back(pixels);
             }
             rotator->rotate(pgm, degree, output_file);
+        }
+        else if(inputLine.compare("P2") == 0){
+            pgm->setMagicNum(2);
+            
+            getline(infile, inputLine);
+            if(inputLine[0] == '#')
+                cout<<"Comment";
+
+            ss << infile.rdbuf();
+            ss >> width >> height >> maxVal;
+            pgm->setWidth(width);
+            pgm->setHeight(height);
+            pgm->setMaxVal(maxVal);
+
+            string temp;
+
+            for(int row = 0; row < height; ++row){
+                vector<GrayPixel*> pixels;
+                for (int col = 0; col < width; ++col){
+                    ss >> temp;
+                    pixels.push_back(new GrayPixel(temp));
+                }
+                pgm->gp_array.push_back(pixels);
+            }
+            rotator->rotate(pgm, degree, output_file);
+        }
+    }
+    else if (input_file.find("ppm") != std::string::npos){
+        Ppm* ppm = new Ppm();
+        
+        ifstream f(input_file);
+        if (f.fail()) {
+            cout << "Could not open file: ";
+        }
+        stringstream ss;
+        string inputLine = "";
+
+        int magicNum, width, height, maxVal;
+        int count = 0;
+        // First line : version
+        getline(infile, inputLine); 
+        cout<<inputLine;
+        
+        cout<<"Not working";
+        if (inputLine.compare("P6") == 0)
+        {
+            /* code */
+
+
+            ppm->setMagicNum(6);
+            getline(infile, inputLine);
+            if(inputLine[0] == '#')
+                cout<<"Comment";
+            ss << infile.rdbuf();
+            ss >> width >> height >> maxVal;
+            ppm->setWidth(width);
+            ppm->setHeight(height);
+            ppm->setMaxVal(maxVal);
+
+            string red;
+            string blue;
+            string green;
+
+            for(int row = 0; row < height; ++row){
+                vector<ColorPixel*> pixels;
+                for (int col = 0; col < width; ++col){
+                    ss >> red >> blue >> green;
+                    pixels.push_back(new ColorPixel({red, blue, green}));
+                }
+                ppm->cp_array.push_back(pixels);
+            }
+            rotator->rotate(ppm, degree, output_file);
+        }
+        else if(inputLine.compare("P3") == 0){
+            ppm->setMagicNum(3);
+            getline(infile, inputLine);
+            if(inputLine[0] == '#')
+                cout<<"Comment";
+            ss << infile.rdbuf();
+            ss >> width >> height >> maxVal;
+            ppm->setWidth(width);
+            ppm->setHeight(height);
+            ppm->setMaxVal(maxVal);
+
+            string red;
+            string blue;
+            string green;
+
+            for(int row = 0; row < height; ++row){
+                vector<ColorPixel*> pixels;
+                for (int col = 0; col < width; ++col){
+                    ss >> red >> blue >> green;
+                    pixels.push_back(new ColorPixel({red, blue, green}));
+                }
+                ppm->cp_array.push_back(pixels);
+            }
+            rotator->rotate(ppm, degree, output_file);
         }
     }
 }

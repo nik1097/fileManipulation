@@ -1,6 +1,9 @@
 #ifndef COLORPIXEL_H
 #define COLORPIXEL_H
 
+#include<string>
+using namespace std;
+
 class ColorPixel{
    private:
     string red;
@@ -9,6 +12,7 @@ class ColorPixel{
 
    public:
     ColorPixel(){}
+
     ColorPixel(string red, string green, string blue){
         this->red = red;
         this->green = green;

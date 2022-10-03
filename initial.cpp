@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-  int row = 0, col = 0, numrows = 0, numcols = 0;
+  int row = 0, col = 0, numrows = 0, numcols = 0, maxVal = 0;
   ifstream infile("cats_chips.pgm");
   stringstream ss;
   string inputLine = "";
@@ -20,8 +20,8 @@ int main() {
 
   // Continue with a stringstream
   ss << infile.rdbuf();
-  ss >> numcols >> numrows;
-  cout << numcols << " columns and " << numrows << " rows" << endl;
+  ss >> numcols >> numrows >> maxVal;
+  cout << numcols << " columns and " << numrows << " rows" << endl << maxVal << endl;
 
   int array[numrows][numcols];
   int rev_array[numrows][numcols];

@@ -1,23 +1,24 @@
 #ifndef GRAYPIXEL_H
 #define GRAYPIXEL_H
 
+#include<string>
+
+using namespace std;
+
 class GrayPixel{
    private:
-    unsigned char gp;
+    string gp;
 
    public:
-    GrayPixel(){
-        gp = 0;
-    }
-    GrayPixel(unsigned char gp){
+    GrayPixel(){}
+    GrayPixel(string gp){
         this->gp = gp;
     }
-    unsigned char getGp(){ 
-        return gp; 
+    string getGp(){ 
+        return gp;
     }
-
-    void setGp(unsigned char gr){ 
-        this->gp = gp; 
+    void setGp(string gp){
+        this->gp = gp;
     }
 };
 

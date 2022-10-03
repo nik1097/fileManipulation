@@ -3,41 +3,37 @@
 
 class ColorPixel{
    private:
-    unsigned char red;
-    unsigned green;
-    unsigned blue;
+    string red;
+    string green;
+    string blue;
 
    public:
-    ColorPixel(){
-        red = 0;
-        green = 0;
-        blue = 0;
-    }
-    ColorPixel(unsigned char red, unsigned char green, unsigned char blue){
+    ColorPixel(){}
+    ColorPixel(string red, string green, string blue){
         this->red = red;
         this->green = green;
         this->blue = blue;
     }
 
     // Getters
-    unsigned char getRed(){ 
+    string getRed(){ 
         return red; 
     }
-    unsigned char getGreen(){ 
+    string getGreen(){ 
         return green; 
     }
-    unsigned char getBlue(){ 
+    string getBlue(){ 
         return blue; 
     }
 
     // Setters
-    void setRed(unsigned char red){ 
+    void setRed(string red){ 
         this->red = red; 
     }
-    void setGreen(unsigned char green){ 
+    void setGreen(string green){ 
         this->green = green; 
     }
-    void setBlue(unsigned char blue){ 
+    void setBlue(string blue){ 
         this->blue = blue; 
     }
 };

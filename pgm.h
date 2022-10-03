@@ -5,17 +5,19 @@
 #include <vector>
 #include "grayPixel.h"
 
+using namespace std;
+
 class Pgm{
    private:
     int magicNum;
     int maxVal;
     int width; 
     int height;
-    std::vector<GrayPixel> gp;
 
    public:
+    vector<vector<GrayPixel*>>gp_array;
     Pgm();
-    Pgm(int magicNum, int maxVal, int width, int height, std::vector<GrayPixel> gp);
+    Pgm(int magicNum, int maxVal, int width, int height);
 
     int getMagicNum(){ 
         return magicNum; 
@@ -29,8 +31,8 @@ class Pgm{
     int getHeight(){ 
         return height; 
     }
-    std::vector<GrayPixel> getPixels(){ 
-        return gp; 
+    vector<vector<GrayPixel*>> getPixels(){ 
+        return gp_array; 
     }
 
     void setMagicNum(int magicNum){ 
@@ -45,8 +47,8 @@ class Pgm{
     void setHeight(int height){ 
         this->height = height; 
     }
-    void setPixels(std::vector<GrayPixel> gp){
-         this->gp = gp; 
+    void setPixels(vector<vector<GrayPixel*>>gp_array){
+         this->gp_array = gp_array; 
     }
 };
 

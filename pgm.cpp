@@ -7,10 +7,9 @@ Pgm::Pgm(){
     height = 0;
 }
 
-Pgm::Pgm(int magicNum, int maxVal, int width, int height, std::vector<GrayPixel> gp){
+Pgm::Pgm(int magicNum, int maxVal, int width, int height){
     this->magicNum = magicNum;
     this->maxVal = maxVal;
     this->width = width;
     this->height = height;
-    this->gp = gp;
 }

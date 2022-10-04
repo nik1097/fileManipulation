@@ -6,6 +6,8 @@
 #include <vector>
 #include "grayPixel.h"
 #include <sstream>
+#include "conversionppm.h"
+#include "conversionpgm.h"
 
 using namespace std;
 
@@ -33,7 +35,45 @@ int main(int argc, char* argv[]){
         int count = 0;
         // First line : version
         getline(infile, inputLine);
-        if(inputLine.compare("P2") == 0){
+        if(inputLine.compare("P5") == 0){
+            const char *input = input_file.c_str();
+            const char* p2Converted = "P2File.pgm";
+            FILE *inputFile = fopen(input, "rb");
+            FILE *outFile = fopen(p2Converted, "wb");
+            Conversionpgm *convert;
+
+            convert->writeP2(inputFile, outFile);
+
+            ifstream infile_1(p2Converted);
+            string inputLine_1 = "";
+            
+            getline(infile_1, inputLine_1);
+
+            pgm->setMagicNum(2);
+            
+            getline(infile_1, inputLine_1);
+            if(inputLine_1[0] == '#')
+                cout<<"Comment";
+
+            ss << infile_1.rdbuf();
+            ss >> width >> height >> maxVal;
+            pgm->setWidth(width);
+            pgm->setHeight(height);
+            pgm->setMaxVal(maxVal);
+
+            string temp;
+
+            for(int row = 0; row < height; ++row){
+                vector<GrayPixel*> pixels;
+                for (int col = 0; col < width; ++col){
+                    ss >> temp;
+                    pixels.push_back(new GrayPixel(temp));
+                }
+                pgm->gp_array.push_back(pixels);
+            }
+            rotator->rotate(pgm, degree, output_file);
+        }
+        else if(inputLine.compare("P2") == 0){
             pgm->setMagicNum(2);
             
             getline(infile, inputLine);

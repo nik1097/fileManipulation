@@ -114,7 +114,47 @@ int main(int argc, char* argv[]){
         // First line : version
         getline(infile, inputLine); 
 
-        if(inputLine.compare("P3") == 0){
+        if(inputLine.compare("P6") == 0){
+            const char *input = input_file.c_str();
+            const char* p6Converted = "P6File.ppm";
+            FILE *inputFile = fopen(input, "rb");
+            FILE *outFile = fopen(p6Converted, "wb");
+            Conversionpgm *convert;
+
+            convert->writeP6(inputFile, outFile);
+
+            ifstream infile_1(p6Converted);
+            string inputLine_1 = "";
+            
+            getline(infile_1, inputLine_1);
+
+            ppm->setMagicNum(3);
+            
+            getline(infile_1, inputLine_1);
+            if(inputLine_1[0] == '#')
+                cout<<"Comment";
+
+            ss << infile_1.rdbuf();
+            ss >> width >> height >> maxVal;
+            ppm->setWidth(width);
+            ppm->setHeight(height);
+            ppm->setMaxVal(maxVal);
+
+            string red;
+            string blue;
+            string green;
+
+            for(int row = 0; row < height; ++row){
+                vector<ColorPixel*> pixels;
+                for (int col = 0; col < width; ++col){
+                    ss >> red >> blue >> green;
+                    pixels.push_back(new ColorPixel({red, blue, green}));
+                }
+                ppm->cp_array.push_back(pixels);
+            }
+            rotator->rotate(ppm, degree, output_file);
+        }
+        else if(inputLine.compare("P3") == 0){
             ppm->setMagicNum(3);
             
             getline(infile, inputLine);

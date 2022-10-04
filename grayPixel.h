@@ -1,3 +1,5 @@
+// Nikhil Suresh & Devin Lilaramani 
+
 #ifndef GRAYPIXEL_H
 #define GRAYPIXEL_H
 

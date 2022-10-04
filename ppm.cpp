@@ -1,3 +1,5 @@
+// Nikhil Suresh & Devin Lilaramani 
+
 #include "ppm.h"
 
 Ppm::Ppm(){

@@ -1,3 +1,6 @@
+// Nikhil Suresh & Devin Lilaramani 
+
+
 #include <iostream>
 #include "rotator.h"
 #include "grayPixel.h"

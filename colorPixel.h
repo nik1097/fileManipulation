@@ -1,3 +1,5 @@
+// Nikhil Suresh & Devin Lilaramani
+
 #ifndef COLORPIXEL_H
 #define COLORPIXEL_H
 

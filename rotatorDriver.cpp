@@ -119,9 +119,9 @@ int main(int argc, char* argv[]){
             const char* p6Converted = "P6File.ppm";
             FILE *inputFile = fopen(input, "rb");
             FILE *outFile = fopen(p6Converted, "wb");
-            Conversionpgm *convert;
+            Conversionppm *convert;
 
-            convert->writeP6(inputFile, outFile);
+            convert->writeP3(inputFile, outFile);
 
             ifstream infile_1(p6Converted);
             string inputLine_1 = "";

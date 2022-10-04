@@ -80,7 +80,5 @@ void writeP3 (FILE *inFile, FILE *outFile){
       }
       else counter += 1;
     }
-
 }
 };
-#endif

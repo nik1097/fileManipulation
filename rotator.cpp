@@ -88,8 +88,8 @@ void Rotator::rotate(Ppm* input, int degrees, string output_file){
             myfile << "# Rotated image\n";
             myfile << height<<" "<<width<<endl; 
             myfile << maxVal<<endl;
-            for(int row = 0; row < height; ++row){
-                for (int col = 0; col < width; ++col){ 
+            for(int row = 0; row < width; ++row){
+                for (int col = 0; col < height; ++col){ 
                     ColorPixel* cp = rev_array[row][col];
                     myfile << cp->getRed() <<" "<< cp->getGreen() <<" "<< cp->getBlue() <<"\n";
                 }
@@ -97,7 +97,7 @@ void Rotator::rotate(Ppm* input, int degrees, string output_file){
         }
         myfile.close();
     }
-    else if(degrees = 180){
+    else if(degrees == 180){
         vector<vector<ColorPixel*>> rev_array(height, vector<ColorPixel*>(width));
         for(int row = 0; row < height; ++row)
             for (int col = 0; col < width; ++col)

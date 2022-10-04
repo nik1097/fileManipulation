@@ -20,8 +20,6 @@ int main(int argc, char* argv[]){
     string orient = argv[4];
     int degree = stoi(argv[5]);
 
-    cout<<degree;
-
     if(orient == "-l")
         degree = 360 - degree;
 

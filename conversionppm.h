@@ -6,7 +6,8 @@
 #include <unistd.h>
 #include <errno.h>
 #include <string.h>
-
+#ifndef CONVERSIONPPM_H
+#define CONVERSIONPPM_H
 
 #define SIZE 256
 
@@ -85,3 +86,4 @@ void writeP3 (FILE *inFile, FILE *outFile){
     }
 }
 };
+#endif

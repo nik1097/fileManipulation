@@ -52,9 +52,8 @@ int main(int argc, char* argv[]){
 
             pgm->setMagicNum(2);
             
-            getline(infile_1, inputLine_1);
-            if(inputLine_1[0] == '#')
-                cout<<"Comment";
+            while(infile_1.peek() == 35)
+                getline(infile_1, inputLine_1);
 
             ss << infile_1.rdbuf();
             ss >> width >> height >> maxVal;
@@ -77,9 +76,8 @@ int main(int argc, char* argv[]){
         else if(inputLine.compare("P2") == 0){
             pgm->setMagicNum(2);
             
-            getline(infile, inputLine);
-            if(inputLine[0] == '#')
-                cout<<"Comment";
+            while(infile.peek() == 35)
+                getline(infile, inputLine);
 
             ss << infile.rdbuf();
             ss >> width >> height >> maxVal;
@@ -131,9 +129,8 @@ int main(int argc, char* argv[]){
 
             ppm->setMagicNum(3);
             
-            getline(infile_1, inputLine_1);
-            if(inputLine_1[0] == '#')
-                cout<<"Comment";
+            while(infile_1.peek() == 35)
+                getline(infile_1, inputLine_1);
 
             ss << infile_1.rdbuf();
             ss >> width >> height >> maxVal;
@@ -157,10 +154,9 @@ int main(int argc, char* argv[]){
         }
         else if(inputLine.compare("P3") == 0){
             ppm->setMagicNum(3);
-            
-            getline(infile, inputLine);
-            if(inputLine[0] == '#')
-                cout<<"Comment";
+
+            while(infile.peek() == 35)
+                getline(infile, inputLine);
 
             ss << infile.rdbuf();
             ss >> width >> height >> maxVal;

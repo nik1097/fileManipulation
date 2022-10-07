@@ -15,10 +15,10 @@
 using namespace std;
 
 int main(int argc, char* argv[]){
-    string input_file = argv[2];
-    string output_file = argv[3];
-    string orient = argv[4];
-    int degree = stoi(argv[5]);
+    string input_file = argv[1];
+    string output_file = argv[2];
+    string orient = argv[3];
+    int degree = stoi(argv[4]);
 
     if(orient == "-l")
         degree = 360 - degree;
